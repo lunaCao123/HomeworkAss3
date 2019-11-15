@@ -9,7 +9,15 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 
 public class CatDetailActivity extends AppCompatActivity {
     private TextView catBreedTextView;
@@ -24,6 +32,8 @@ public class CatDetailActivity extends AppCompatActivity {
     private ImageButton fav_button;
     public boolean isFavourite = false;
     private ImageButton backBtn;
+    private String imageUrl;
+    private Cat selectedCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +85,34 @@ public class CatDetailActivity extends AppCompatActivity {
         //imageUrl didn't work because imageUrl does not exsist in /breeds url address. It only
         //exsist in https://api.thecatapi.com/images/search?breed_id={{selected_breed.id}},
         //but i'm not sure how to implement it. So I've set all image to the same picture
-        String imageUrl = cat.getUrl();
-        if(imageUrl != null){
-            Glide.with(this).load(imageUrl).into(catImage);
-        }else{
-            catImage.setImageResource(R.drawable.cat);
-        }
+//        RequestQueue requestQueue = Volley.newRequestQueue(catConLayout.getContext());
+//        String url = "https://api.thecatapi.com/v1/images/search?breed_ids="+id;
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                System.out.println("Request Responded");
+//                Gson gson = new Gson();
+//                selectedCat = gson.fromJson(response, Cat.class);//read the output of the API
+//                imageUrl = selectedCat.getUrl();
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                System.out.println("The Request Failed");
+//            }
+//
+//        });
+//        requestQueue.add(stringRequest);
+//
+////        imageUrl = selectedCat.getUrl();
+//        if(imageUrl != null){
+//            Glide.with(catConLayout.getContext()).load(imageUrl).into(catImage);
+//        }else{
+//            catImage.setImageResource(R.drawable.cat);
+//        }
+        catImage.setImageResource(R.drawable.cat);
 
     }
     //Back to Main Activity
