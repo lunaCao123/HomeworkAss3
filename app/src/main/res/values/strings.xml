@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cat Craze</string>
+    <string name="sample">Sample</string>
+    <string name="search_hint">Search Cat Breed</string>
+    <string name="favourite_label">Favourite Cats</string>
+    <string name="Origin_lb">Origin:</string>
+    <string name="Weight_lb">Weight(KG):</string>
+    <string name="Temperament_lb">Temperament:</string>
+    <string name="Life_span_lb">Life Span(Years):</string>
+    <string name="Dog_friend_lb">Dog Friendliness Level:</string>
+
+</resources>
